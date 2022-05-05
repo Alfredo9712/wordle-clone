@@ -1,0 +1,16 @@
+.board {
+  display: table;
+  width: 350px;
+  border-spacing: 5px;
+  margin-top: 10vh;
+  height: 420px;
+  .row {
+    display: table-row;
+    height: auto;
+    width: 100%;
+    .cell {
+      display: table-cell;
+      border: 2px #3a3a3c solid;
+    }
+  }
+}
