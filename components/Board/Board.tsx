@@ -8,6 +8,7 @@ interface BoardProps {
     character: string;
     isCorrectPosition: boolean;
     isLetterInWord: boolean;
+    incorrectGuess: boolean;
   }[][];
 }
 
@@ -20,6 +21,7 @@ const Board: NextPage<BoardProps> = ({ board }) => {
             const cellClasses = classNames(styles.cell, {
               [styles.correctCellPosition]: cell.isCorrectPosition,
               [styles.characterIsInWord]: cell.isLetterInWord,
+              [styles.wrongGuess]: cell.incorrectGuess,
             });
             return (
               <div key={index} className={cellClasses}>

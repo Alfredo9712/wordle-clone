@@ -19,46 +19,196 @@ const HomeContent: NextPage = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [board, setBoard] = useState([
     [
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
     ],
     [
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
     ],
     [
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
     ],
     [
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
     ],
     [
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
     ],
     [
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
-      { character: "", isCorrectPosition: false, isLetterInWord: false },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
+      {
+        character: "",
+        isCorrectPosition: false,
+        isLetterInWord: false,
+        incorrectGuess: false,
+      },
     ],
   ]);
 
@@ -71,6 +221,7 @@ const HomeContent: NextPage = () => {
             character: c,
             isCorrectPosition: false,
             isLetterInWord: false,
+            inincorrectGuess: false,
           }
       );
       if (letter.length === 5) setFilledRow(true);
@@ -90,6 +241,7 @@ const HomeContent: NextPage = () => {
             character: c,
             isCorrectPosition: true,
             isLetterInWord: true,
+            incorrectGuess: false,
           };
         }
         if (wordArray.includes(guessArray[i])) {
@@ -97,12 +249,14 @@ const HomeContent: NextPage = () => {
             character: c,
             isCorrectPosition: false,
             isLetterInWord: true,
+            incorrectGuess: false,
           };
         } else {
           return {
             character: c,
             isCorrectPosition: false,
             isLetterInWord: false,
+            incorrectGuess: true,
           };
         }
       });
