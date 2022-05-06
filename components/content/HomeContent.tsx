@@ -8,7 +8,7 @@ import styles from "./HomeContent.module.scss";
 const HomeContent: NextPage = () => {
   const [attempts, setAttempts] = useState(0);
   const [filledRow, setFilledRow] = useState(false);
-  const [correctGuess, setCorrectGuess] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [board, setBoard] = useState([
     [
@@ -205,7 +205,7 @@ const HomeContent: NextPage = () => {
     ],
   ]);
   const wordMemo = useMemo(() => randomWord(), []).toLocaleLowerCase();
-
+  console.log(wordMemo);
   const fillBoard = (letter: string) => {
     if (inputRef.current) {
       const characters: any = inputRef.current.value.split("").map(
@@ -261,10 +261,6 @@ const HomeContent: NextPage = () => {
   };
   const submitGuess = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (inputRef.current?.value === wordMemo) {
-      alert("you win");
-      setCorrectGuess(true);
-    }
     if (
       filledRow &&
       inputRef.current &&
@@ -276,10 +272,23 @@ const HomeContent: NextPage = () => {
       return;
     if (filledRow && inputRef.current) {
       compareGuess();
+      if (inputRef.current?.value === wordMemo) {
+        setTimeout(() => {
+          alert("you win");
+        }, 100);
+        setGameOver(true);
+        return;
+      }
       setAttempts((attempts) => attempts + 1);
       if (inputRef.current) {
         inputRef.current.value = "";
       }
+    }
+    if (attempts === 5) {
+      setGameOver(true);
+      setTimeout(() => {
+        alert(`Game Over! Word was ${wordMemo}`);
+      }, 100);
     }
   };
   useLayoutEffect(() => {
@@ -296,12 +305,12 @@ const HomeContent: NextPage = () => {
         <input
           ref={inputRef}
           autoFocus
-          disabled={correctGuess === true}
+          disabled={gameOver === true}
           className={styles.input}
           maxLength={5}
           onChange={(e) => fillBoard(e.target.value)}
         />
-        <button type="submit" hidden disabled={correctGuess === true}></button>
+        <button type="submit" hidden disabled={gameOver === true}></button>
       </form>
     </div>
   );

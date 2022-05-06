@@ -24,12 +24,15 @@
 
     .characterIsInWord {
       background-color: #c9b458;
+      border: none;
     }
     .correctCellPosition {
       background-color: #538d4e;
+      border: none;
     }
     .wrongGuess {
       background-color: #86888a;
+      border: none;
     }
   }
 }
