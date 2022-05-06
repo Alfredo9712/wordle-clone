@@ -1,18 +1,11 @@
 import { NextPage } from "next";
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  useLayoutEffect,
-  useMemo,
-} from "react";
+import React, { useRef, useState, useLayoutEffect, useMemo } from "react";
 import { randomWord } from "../../wordBank";
 import Board from "../Board";
 import { wordBank } from "../../wordBank";
 import styles from "./HomeContent.module.scss";
 
 const HomeContent: NextPage = () => {
-  const [lettersGuessed, setLettersGuessed] = useState([]);
   const [attempts, setAttempts] = useState(0);
   const [filledRow, setFilledRow] = useState(false);
   const [correctGuess, setCorrectGuess] = useState(false);
@@ -211,8 +204,8 @@ const HomeContent: NextPage = () => {
       },
     ],
   ]);
-
   const wordMemo = useMemo(() => randomWord(), []).toLocaleLowerCase();
+
   const fillBoard = (letter: string) => {
     if (inputRef.current) {
       const characters: any = inputRef.current.value.split("").map(
@@ -299,7 +292,6 @@ const HomeContent: NextPage = () => {
     <div className={styles.homeContent}>
       <h1>Wordle</h1>
       <Board {...{ board }} />
-      {lettersGuessed.length > 0 && <div className={styles.input}> </div>}
       <form onSubmit={submitGuess}>
         <input
           ref={inputRef}
