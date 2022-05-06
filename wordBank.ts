@@ -1,4 +1,4 @@
-const wordBank = [
+export const wordBank = [
   "Abuse",
   "Adult",
   "Agent",

@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { randomWord } from "../../wordBank";
 import Board from "../Board";
-
+import { wordBank } from "../../wordBank";
 import styles from "./HomeContent.module.scss";
 
 const HomeContent: NextPage = () => {
@@ -61,6 +61,7 @@ const HomeContent: NextPage = () => {
       { character: "", isCorrectPosition: false, isLetterInWord: false },
     ],
   ]);
+
   const wordMemo = useMemo(() => randomWord(), []).toLocaleLowerCase();
   console.log(wordMemo);
   const fillBoard = (letter: string) => {
@@ -81,6 +82,7 @@ const HomeContent: NextPage = () => {
     }
   };
   const compareGuess = () => {
+    console.log(inputRef.current?.value);
     if (inputRef.current) {
       const wordArray = wordMemo.split("");
       const guessArray = inputRef.current?.value.split("");
@@ -91,6 +93,13 @@ const HomeContent: NextPage = () => {
             isCorrectPosition: true,
             isLetterInWord: true,
           };
+        }
+        if (wordArray.includes(guessArray[i])) {
+          return {
+            character: c,
+            isCorrectPosition: false,
+            isLetterInWord: true,
+          };
         } else {
           return {
             character: c,
@@ -99,12 +108,29 @@ const HomeContent: NextPage = () => {
           };
         }
       });
+      const updatedBoard = board.map((row, idx) =>
+        idx === attempts ? (row = guess) : row
+      );
+      setBoard(updatedBoard);
       console.log(guess);
     }
   };
   const submitGuess = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (filledRow) {
+    if (inputRef.current?.value === wordMemo) {
+      alert("you win");
+      setCorrectGuess(true);
+    }
+    if (
+      filledRow &&
+      inputRef.current &&
+      !wordBank.includes(
+        inputRef.current?.value.charAt(0).toUpperCase() +
+          inputRef.current?.value.slice(1)
+      )
+    )
+      return;
+    if (filledRow && inputRef.current) {
       compareGuess();
       setAttempts((attempts) => attempts + 1);
       if (inputRef.current) {
@@ -127,10 +153,12 @@ const HomeContent: NextPage = () => {
         <input
           ref={inputRef}
           autoFocus
+          disabled={correctGuess === true}
+          className={styles.input}
           maxLength={5}
           onChange={(e) => fillBoard(e.target.value)}
         />
-        <button type="submit" hidden></button>
+        <button type="submit" hidden disabled={correctGuess === true}></button>
       </form>
     </div>
   );

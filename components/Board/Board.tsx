@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import React from "react";
-
+import classNames from "classnames";
 import styles from "./Board.module.scss";
 
 interface BoardProps {
@@ -16,11 +16,17 @@ const Board: NextPage<BoardProps> = ({ board }) => {
     <div className={styles.board}>
       {board.map((row, index) => (
         <div className={styles.row} key={index}>
-          {row.map((cell, index) => (
-            <div key={index} className={styles.cell}>
-              {cell.character}
-            </div>
-          ))}
+          {row.map((cell, index) => {
+            const cellClasses = classNames(styles.cell, {
+              [styles.correctCellPosition]: cell.isCorrectPosition,
+              [styles.characterIsInWord]: cell.isLetterInWord,
+            });
+            return (
+              <div key={index} className={cellClasses}>
+                {cell.character}
+              </div>
+            );
+          })}
         </div>
       ))}
     </div>
