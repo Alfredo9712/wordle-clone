@@ -63,7 +63,6 @@ const HomeContent: NextPage = () => {
   ]);
 
   const wordMemo = useMemo(() => randomWord(), []).toLocaleLowerCase();
-  console.log(wordMemo);
   const fillBoard = (letter: string) => {
     if (inputRef.current) {
       const characters: any = inputRef.current.value.split("").map(
@@ -82,7 +81,6 @@ const HomeContent: NextPage = () => {
     }
   };
   const compareGuess = () => {
-    console.log(inputRef.current?.value);
     if (inputRef.current) {
       const wordArray = wordMemo.split("");
       const guessArray = inputRef.current?.value.split("");
@@ -112,7 +110,6 @@ const HomeContent: NextPage = () => {
         idx === attempts ? (row = guess) : row
       );
       setBoard(updatedBoard);
-      console.log(guess);
     }
   };
   const submitGuess = (e: React.FormEvent<HTMLFormElement>) => {
