@@ -2,7 +2,7 @@
   display: table;
   width: 350px;
   border-spacing: 5px;
-  margin-top: 10vh;
+  margin-top: 5vh;
   height: 420px;
   .row {
     display: table-row;
@@ -21,7 +21,6 @@
       vertical-align: middle;
       text-align: center;
     }
-
     .characterIsInWord {
       background-color: #c9b458;
       border: none;
@@ -34,5 +33,11 @@
       background-color: #86888a;
       border: none;
     }
+  }
+}
+
+@media (min-width: 720px) {
+  .board {
+    margin-top: 10vh;
   }
 }
