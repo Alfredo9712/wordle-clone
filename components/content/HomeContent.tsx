@@ -205,7 +205,7 @@ const HomeContent: NextPage = () => {
     ],
   ]);
   const wordMemo = useMemo(() => randomWord(), []).toLocaleLowerCase();
-  console.log(wordMemo);
+
   const fillBoard = (letter: string) => {
     if (inputRef.current) {
       const characters: any = inputRef.current.value.split("").map(
