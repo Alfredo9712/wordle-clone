@@ -4,17 +4,22 @@ import React from "react";
 import styles from "./Board.module.scss";
 
 interface BoardProps {
-  board: string[][];
+  board: {
+    character: string;
+    isCorrectPosition: boolean;
+    isLetterInWord: boolean;
+  }[][];
 }
 
 const Board: NextPage<BoardProps> = ({ board }) => {
-  console.log(board[0][1]);
   return (
     <div className={styles.board}>
       {board.map((row, index) => (
-        <div className={styles.row}>
-          {row.map((cell) => (
-            <div className={styles.cell}>{cell}</div>
+        <div className={styles.row} key={index}>
+          {row.map((cell, index) => (
+            <div key={index} className={styles.cell}>
+              {cell.character}
+            </div>
           ))}
         </div>
       ))}
